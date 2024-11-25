@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -73,7 +74,7 @@ class RenderBarometer extends RenderBox {
   }
 
   void _tick(Duration elapsedTime) {
-    const double delta = 0.05;
+    const double delta = 0.04;
     const double fault = 80;
 
     if (!_isAnimating) return;
@@ -170,6 +171,14 @@ class RenderBarometer extends RenderBox {
         canvas,
         Offset(dx - textPainter.width / 2, dy - textPainter.height / 2),
       );
+    }
+
+    for(int i = 0; i < 100; i ++){
+      final angle = pi / 2 + (i / 100 * 2 * pi);
+      final dx = center.dx + radius * 0.95 * cos(angle);
+      final dy = center.dy - radius * 0.95 * sin(angle);
+
+      canvas.drawCircle(Offset(dx, dy), 0.01, paint);
     }
 
     /// Стрелочка

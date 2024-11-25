@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather/presentation/common/barometer.dart';
+import 'package:weather/presentation/common/termometer.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});
@@ -8,8 +9,8 @@ class TestPage extends StatefulWidget {
   State createState() => _TestPageState();
 }
 
-class _TestPageState extends State<TestPage>
-    with SingleTickerProviderStateMixin {
+class _TestPageState extends State<TestPage> with SingleTickerProviderStateMixin {
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -17,6 +18,7 @@ class _TestPageState extends State<TestPage>
         child: Column(
           children: [
             BarometerWidget(),
+            ThermometerScreen()
           ],
         ),
       ),
